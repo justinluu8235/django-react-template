@@ -10,6 +10,9 @@ module.exports = {
         publicPath: "/static/frontend/dist/",
         filename: '[name].js'
     },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"],
+    },
     module: {
         // configuration regarding modules
         rules: [
@@ -24,6 +27,7 @@ module.exports = {
                     options: {presets: ["@babel/env", "@babel/preset-react"]}
                 },
             },
+            { test: /\.([cm]?ts|tsx)$/, loader: "ts-loader" }
         ],
     },
     devServer: {
