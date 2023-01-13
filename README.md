@@ -19,3 +19,24 @@ A template for a Django project with a React frontend. Supports the following:
 After these steps, you should have an app that is fully ready to go. 
 
 You can now run `./manage.py runserver` in one terminal tab and `npm run start:dev` in another to start the backend and frontend servers respectively.
+
+## Project Structure
+
+The Django project comes with a single app already created called `main`.
+
+Within each app directory, you will find a `templates` directory which
+hosts the HTML template(s) for that app (e.g. main/templates/index.html).
+The template file is expected to have a root container which is where the
+React app gets mounted.
+
+The frontend directory is where all the frontend code goes, including the
+React code. Each Django app has its own directory within `frontend/apps`
+and this is where the React code lives. Our webpack config is configured
+to compile the tsx files and drop them into the `dist` directory. We also
+use a `publicPath` in the webpack config which is the URL at which django
+finds the compiled files.
+
+
+There's also a `static` directory
+within the frontend directory where all other static assets can go (css,
+images, etc.)
