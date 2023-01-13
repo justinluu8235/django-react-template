@@ -14,4 +14,8 @@ A template for a Django project with a React frontend. Supports the following:
 4. Create `.env` file from the `dot-env` template with `cp dot-env .env`
 5. Run `python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())’` to generate a dango secret key
 6. Paste the generated key into the `SECRET_KEY` field in `.env`
-7. Test that the app is working with `python manage.py runserver`
+7. Run `npm i` to install the frontend dependencies
+
+After these steps, you should have an app that is fully ready to go. 
+
+You can now run `./manage.py runserver` in one terminal tab and `npm run start:dev` in another to start the backend and frontend servers respectively.
