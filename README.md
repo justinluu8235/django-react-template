@@ -36,7 +36,7 @@ for your AWS CLI, you're ready to go.
 4. Run `eb status` to find the cname of the new environment. You will need
 to add this into the INSTALLED_APPS setting in `settings.py`.
 
-At this point you have a project deployed on AWS EB but it won't work. Couple
+At this point you have a project deployed on AWS EB, but it won't work. Couple
 more things to take care of:
 1. Set up a postgres DB for the project by first opening the eb console 
 with `eb console`, going to `configuration`, scrolling to `database` and
@@ -55,7 +55,6 @@ lets you have fully decoupled frontend & backend.
 Our webpack config is configured to compile the tsx files and drop them into the `dist` 
 directory. We also use a `publicPath` in the webpack config which is the URL at which django
 finds the compiled files.
-
 
 There's also a `static` directory
 within the frontend directory where all other static assets can go (css,
