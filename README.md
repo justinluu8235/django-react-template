@@ -28,22 +28,31 @@ You can now run the following in 3 different terminal tabs:
 This project is built to be deployed on AWS ElasticBeanstalk. To do so,
 do the following:
 
-1. It's usually a good idea to create a new AWS account for each app you 
+1. Run `npm run build` and `npm run tailwind:dev` once to get the static
+files generated in the dist folder. Then run `./manage.py collectstatic` to
+get those into django's static directory.
+2. It's usually a good idea to create a new AWS account for each app you 
 build. So get that stuff set up first and once you have the profile setup
-for your AWS CLI, you're ready to go.
-2. Run `eb init` and initialize the EB project
-3. Run `eb create <project_name>-env`. This will set up the env in EB.
-4. Run `eb status` to find the cname of the new environment. You will need
-to add this into the INSTALLED_APPS setting in `settings.py`.
-
-At this point you have a project deployed on AWS EB, but it won't work. Couple
-more things to take care of:
-1. Set up a postgres DB for the project by first opening the eb console 
+for your AWS CLI, you're ready to go. 
+3. Run `eb init` and initialize the EB project 
+4. Run `eb create <project_name>-env`. This will set up the env in EB. (Note:
+this will set up the env but with errors because the `migrate` step in django.config
+will fail since there's no DB yet)
+5. Set up a postgres DB for the project by first opening the eb console 
 with `eb console`, going to `configuration`, scrolling to `database` and
-hitting edit.
-2. You also need to put in any env variables that are in the `.env` file
+hitting edit. 
+6. You also need to put in any env variables that are in the `.env` file
 in the eb environment. You can do this by clicking `edit` on the Software
-option.
+option. 
+7. Run `eb status` to find the cname of the new environment. You will need
+to add this into the INSTALLED_APPS setting in `settings.py`. 
+8. Commit the latest changes and then run `eb deploy`.
+
+## NOTE
+This app currently runs with DEBUG set to True. This is fine for dev but
+not fine for production. Right now setting this to False and deploying
+causes static files to not load. Not totally sure the cause here but will
+need to fix once I figure it out.
 
 ## Project Structure
 
