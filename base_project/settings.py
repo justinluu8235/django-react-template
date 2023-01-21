@@ -33,7 +33,8 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = "RDS_DB_NAME" not in os.environ
 
 ALLOWED_HOSTS = [
-    "templatetest-env.eba-nu2i48bz.us-east-1.elasticbeanstalk.com", "localhost"
+    "localhost",
+    "templatetest-env.eba-nu2i48bz.us-east-1.elasticbeanstalk.com",
 ]
 
 
