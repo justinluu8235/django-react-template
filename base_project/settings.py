@@ -32,7 +32,9 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "templatetest-env.eba-nu2i48bz.us-east-1.elasticbeanstalk.com", "localhost"
+]
 
 
 # Application definition
