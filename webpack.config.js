@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode: "development",
     entry: {
-        'main/index': './frontend/apps/main/index.tsx',
+        'main/index': './frontend/main/index.tsx',
     },
     output: {
         path: path.resolve(__dirname, './frontend/dist'),
