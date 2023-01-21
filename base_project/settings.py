@@ -30,7 +30,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = "RDS_DB_NAME" not in os.environ
 
 ALLOWED_HOSTS = [
     "templatetest-env.eba-nu2i48bz.us-east-1.elasticbeanstalk.com", "localhost"
@@ -138,6 +138,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend", "dist"),  # Compiled React files

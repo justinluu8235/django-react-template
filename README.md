@@ -23,6 +23,28 @@ You can now run the following in 3 different terminal tabs:
  - `npm run start:dev`
  - `npm run tailwind:dev`
 
+## ElasticBeanstalk
+
+This project is built to be deployed on AWS ElasticBeanstalk. To do so,
+do the following:
+
+1. It's usually a good idea to create a new AWS account for each app you 
+build. So get that stuff set up first and once you have the profile setup
+for your AWS CLI, you're ready to go.
+2. Run `eb init` and initialize the EB project
+3. Run `eb create <project_name>-env`. This will set up the env in EB.
+4. Run `eb status` to find the cname of the new environment. You will need
+to add this into the INSTALLED_APPS setting in `settings.py`.
+
+At this point you have a project deployed on AWS EB but it won't work. Couple
+more things to take care of:
+1. Set up a postgres DB for the project by first opening the eb console 
+with `eb console`, going to `configuration`, scrolling to `database` and
+hitting edit.
+2. You also need to put in any env variables that are in the `.env` file
+in the eb environment. You can do this by clicking `edit` on the Software
+option.
+
 ## Project Structure
 
 The Django project comes with a single app already created called `main`. 
